@@ -1,0 +1,24 @@
+<div class="patient">
+  <div class="info-name">
+    <div class="name">{{ patient.name }}</div>
+    <div class="info-row">
+      <div class="info">
+        CPF: <span>{{ patient.cpf! | mask: "000.000.000-00" }}</span>
+      </div>
+      <div class="info">
+        Nascimento: <span>{{ parseDate(patient.birthDate!) }}</span>
+      </div>
+    </div>
+    <div class="info doctor-name">
+      Médico: <span>{{ patient.doctor?.name }}</span>
+    </div>
+  </div>
+  <div class="icons-wrapper">
+    <span class="material-icons-outlined icon icon-edit" (click)="onEdit()"
+      >edit</span
+    >
+    <span class="material-icons-outlined icon" (click)="onRemove()"
+      >delete_forever</span
+    >
+  </div>
+</div>

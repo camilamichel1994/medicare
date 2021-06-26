@@ -1,0 +1,41 @@
+@import "../../../theme.scss";
+
+.input {
+  width: 480px;
+  background: $card-background;
+  border-radius: 10px;
+  margin: 12px 0px;
+  padding: 15px;
+
+  @media (max-width: 900px) {
+    background: $background;
+  }
+}
+
+.document-row {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  align-items: flex-end;
+
+  @media (max-width: 900px) {
+    flex-wrap: wrap;
+  }
+}
+
+.document-input {
+  margin-right: 10px;
+}
+
+.button-submit {
+  margin-left: 10px;
+}
+
+.button-clear {
+  margin-left: 10px;
+
+  @media (max-width: 900px) {
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,23 @@
+<div class="list-wrapper">
+  <div class="list">
+    <div class="title">Relatórios</div>
+    <app-textinput *ngIf="!isLoading" label="Filtrar por médico">
+      <input type="text" placeholder="Nome do médico" [(ngModel)]="userInput" />
+    </app-textinput>
+    <div *ngIf="hasError" class="error-message">{{ errorMessage }}</div>
+    <div *ngIf="isLoading" class="loader-wrapper">
+      <img class="loader" src="/assets/svg/loader.svg" alt="loading" />
+    </div>
+    <div
+      *ngIf="!isLoading && filteredPatients.length <= 0"
+      class="empty-wrapper"
+    >
+      <img class="empty" src="/assets/svg/no_patients.svg" alt="empty" />
+      <div class="empty-text">Nenhum paciente encontrado</div>
+    </div>
+    <reports-patient
+      *ngFor="let patient of filteredPatients; index as i"
+      [patient]="patient"
+    ></reports-patient>
+  </div>
+</div>

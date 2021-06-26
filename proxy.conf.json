@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://dev-exam-api.btcd.com.br",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

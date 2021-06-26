@@ -1,0 +1,38 @@
+<div class="input">
+  <form [formGroup]="doctorForm" (ngSubmit)="submit()">
+    <app-textinput label="Nome completo">
+      <input type="text" placeholder="Nome completo" formControlName="name" />
+    </app-textinput>
+    <div class="document-row">
+      <app-textinput label="CRM" class="document-input">
+        <input
+          type="text"
+          placeholder="000000"
+          formControlName="document"
+          mask="000009"
+        />
+      </app-textinput>
+      <app-textinput label="CRM UF" width="100px">
+        <input
+          type="text"
+          placeholder="XX"
+          formControlName="documentState"
+          mask="SS"
+        />
+      </app-textinput>
+      <app-button
+        class="button-submit"
+        type="submit"
+        [isDisabled]="doctorForm.invalid"
+        >Publicar</app-button
+      >
+      <app-button
+        class="button-clear"
+        type="button"
+        [isSecondary]="true"
+        (click)="doctorForm.reset()"
+        >{{ isEditing() ? "Cancelar" : "Limpar" }}</app-button
+      >
+    </div>
+  </form>
+</div>

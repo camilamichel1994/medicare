@@ -1,0 +1,29 @@
+<div class="login">
+  <img class="login-img" src="/assets/svg/login.svg" alt="medicare" />
+  <div class="login-form">
+    <img class="logo" src="/assets/svg/logo.svg" alt="logo" />
+    <form class="input-area" [formGroup]="loginForm" (ngSubmit)="submit()">
+      <app-textinput label="E-mail" class="text-input">
+        <input type="email" placeholder="E-mail" formControlName="email" />
+      </app-textinput>
+      <app-textinput label="Senha" class="text-input"
+        ><input type="password" placeholder="Senha" formControlName="password"
+      /></app-textinput>
+      <div *ngIf="hasError" class="error-message">
+        {{ errorMessage }}
+      </div>
+      <app-button
+        *ngIf="!isLoading"
+        type="submit"
+        [isDisabled]="loginForm.invalid"
+        >Entrar</app-button
+      >
+      <img
+        *ngIf="isLoading"
+        class="loader"
+        src="/assets/svg/loader.svg"
+        alt="loading"
+      />
+    </form>
+  </div>
+</div>

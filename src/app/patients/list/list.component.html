@@ -1,0 +1,25 @@
+<div class="list-wrapper">
+  <div class="list">
+    <div class="title">Pacientes</div>
+    <patients-input
+      (onRegisterEvent)="registerPatient($event)"
+      (onUpdateEvent)="updatePatient($event)"
+    ></patients-input>
+    <div *ngIf="hasError" class="error-message">{{ errorMessage }}</div>
+    <div *ngIf="isLoading" class="loader-wrapper">
+      <img class="loader" src="/assets/svg/loader.svg" alt="loading" />
+    </div>
+    <div *ngIf="!isLoading && patients.length <= 0" class="empty-wrapper">
+      <img class="empty" src="/assets/svg/no_patients.svg" alt="empty" />
+      <div class="empty-text">Nenhum paciente cadastrado</div>
+    </div>
+    <ng-container *ngIf="!isLoading">
+      <patients-patient
+        *ngFor="let patient of patients; index as i"
+        [patient]="patient"
+        (onRemoveEvent)="removePatient($event, i)"
+        (onUpdateEvent)="populatePatientForm($event, i)"
+      ></patients-patient>
+    </ng-container>
+  </div>
+</div>

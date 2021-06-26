@@ -1,0 +1,7 @@
+<button
+  [type]="type"
+  class="button"
+  [ngClass]="{ disabled: isDisabled, secondary: isSecondary }"
+>
+  <ng-content></ng-content>
+</button>

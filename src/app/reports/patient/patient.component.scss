@@ -1,0 +1,47 @@
+@import "../../../theme.scss";
+
+.patient {
+  width: 480px;
+  background: $card-background;
+  border-radius: 10px;
+  margin: 12px 0px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 900px) {
+    background: $background;
+    width: calc(100vw - 100px);
+  }
+}
+
+.info-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.info {
+  color: $text-light;
+  margin-right: 10px;
+}
+
+.info > span {
+  color: $text;
+}
+
+.name {
+  color: $text;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.doctor-name {
+  margin-top: 10px;
+}

@@ -1,0 +1,53 @@
+<div class="input">
+  <form [formGroup]="patientForm" (ngSubmit)="submit()">
+    <app-textinput label="Nome completo">
+      <input type="text" placeholder="Nome completo" formControlName="name" />
+    </app-textinput>
+
+    <div class="doctor-name">
+      <app-textinput label="Médico responsável">
+        <select formControlName="doctor" [compareWith]="compareSelection">
+          <option [ngValue]="null" disabled>
+            {{ isLoading ? "Carregando médicos..." : "Selecione o médico..." }}
+          </option>
+          <option *ngFor="let doctor of doctorList" [ngValue]="doctor">
+            {{ doctor.name }}
+          </option>
+        </select>
+      </app-textinput>
+    </div>
+
+    <div class="document-row">
+      <app-textinput label="CPF" class="document-input" width="140px">
+        <input
+          type="text"
+          placeholder="000.000.000-00"
+          formControlName="document"
+          mask="000.000.000-00"
+        />
+      </app-textinput>
+      <app-textinput label="Nascimento">
+        <input
+          type="text"
+          placeholder="DD/MM/YYYY"
+          formControlName="birthDate"
+          mask="00/00/0000"
+        />
+      </app-textinput>
+      <app-button
+        class="button-submit"
+        type="submit"
+        [isDisabled]="patientForm.invalid"
+        >Publicar</app-button
+      >
+      <app-button
+        class="button-clear"
+        type="button"
+        [isSecondary]="true"
+        (click)="patientForm.reset()"
+        >{{ isEditing() ? "Cancelar" : "Limpar" }}</app-button
+      >
+    </div>
+    <div *ngIf="hasError" class="error-message">{{ errorMessage }}</div>
+  </form>
+</div>

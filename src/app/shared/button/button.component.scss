@@ -1,0 +1,22 @@
+@import "../../../theme.scss";
+
+.button {
+  background-color: $primary;
+  color: $background;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 15px 20px;
+  cursor: pointer;
+  border: 1px solid $primary;
+}
+
+.secondary {
+  background-color: transparent;
+  color: $primary;
+}
+
+.disabled {
+  opacity: 0.3;
+  cursor: default;
+}

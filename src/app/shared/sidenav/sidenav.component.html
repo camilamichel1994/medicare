@@ -1,0 +1,44 @@
+<div class="sidenav-wrapper" *ngIf="navigation.isVisible">
+  <div class="logo-nav-wrapper">
+    <img class="logo" src="/assets/svg/logo.svg" alt="logo" />
+    <div class="main-nav">
+      <div
+        class="main-item"
+        [routerLink]="['/doctors']"
+        routerLinkActive="active-border"
+      >
+        <span class="material-icons-outlined" routerLinkActive="tab-active"
+          >favorite_border</span
+        >
+        <span class="menu-text" routerLinkActive="tab-active">Médicos</span>
+      </div>
+      <div
+        class="main-item"
+        [routerLink]="['/patients']"
+        routerLinkActive="active-border"
+      >
+        <span class="material-icons-outlined" routerLinkActive="tab-active"
+          >face</span
+        >
+        <span class="menu-text" routerLinkActive="tab-active">Pacientes</span>
+      </div>
+      <div
+        class="main-item"
+        [routerLink]="['/reports']"
+        routerLinkActive="active-border"
+      >
+        <span class="material-icons-outlined" routerLinkActive="tab-active"
+          >assignment</span
+        >
+        <span class="menu-text" routerLinkActive="tab-active">Relatórios</span>
+      </div>
+    </div>
+  </div>
+  <div class="profile-button">
+    <img class="profile-picture" src="/assets/img/profile.jpeg" alt="profile" />
+    <div class="profile-text-wrapper menu-text">
+      <div class="profile-name">{{ username }}</div>
+      <div class="profile-info" (click)="logout()">Logout</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="doctor">
+  <div class="info-name">
+    <div class="name">{{ doctor.name }}</div>
+    <div class="info-row">
+      <div class="info">
+        CRM: <span>{{ doctor.crm }}</span>
+      </div>
+      <div class="info">
+        UF CRM: <span>{{ doctor.crmUf?.toUpperCase() }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="icons-wrapper">
+    <span class="material-icons-outlined icon icon-edit" (click)="onEdit()"
+      >edit</span
+    >
+    <span class="material-icons-outlined icon" (click)="onRemove()"
+      >delete_forever</span
+    >
+  </div>
+</div>
